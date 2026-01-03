@@ -1,0 +1,39 @@
+{
+  "name": "photo-stories",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Travel photo stories viewer optimized for Smart TVs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:vercel": "VITE_PLATFORM=vercel vite build",
+    "build:cloudflare": "VITE_PLATFORM=cloudflare vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "import:flickr": "node scripts/import-flickr.js",
+    "import:private": "node scripts/import-flickr-scrape.js",
+    "import:private:debug": "DEBUG=true node scripts/import-flickr-scrape.js",
+    "setup": "bash scripts/setup-credentials.sh",
+    "test:env": "node scripts/test-env.js",
+    "test:local": "cp -r private-data/* public/data/ && npm run dev",
+    "sync:data": "cp -r private-data/* public/data/"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "jsdom": "^27.4.0",
+    "puppeteer": "^24.34.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^5.0.8"
+  }
+}

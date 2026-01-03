@@ -1,0 +1,15 @@
+{
+  "trips": [
+    {
+      "id": "sample-trip",
+      "title": "Sample Trip (Replace with Real Data)",
+      "description": "This is a sample trip. Use the Flickr import script to generate real trip data.",
+      "coverImage": "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&h=600&fit=crop",
+      "photoCount": 3,
+      "duration": 60,
+      "hasAudio": false,
+      "createdDate": "2024-01-01"
+    }
+  ]
+}
+

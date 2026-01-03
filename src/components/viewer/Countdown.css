@@ -1,0 +1,97 @@
+.countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.countdown__content {
+  text-align: center;
+  padding: 40px;
+}
+
+.countdown__title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.countdown__number {
+  font-size: 120px;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 40px;
+  text-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+  animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.countdown__cancel-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.countdown__cancel-button:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.countdown__hint {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #888;
+  font-weight: 300;
+}
+
+/* TV Mode */
+@media (min-width: 1920px) {
+  .countdown__title {
+    font-size: 48px;
+    margin-bottom: 50px;
+  }
+
+  .countdown__number {
+    font-size: 180px;
+    margin-bottom: 60px;
+  }
+
+  .countdown__cancel-button {
+    padding: 25px 60px;
+    font-size: 28px;
+    border-radius: 12px;
+  }
+
+  .countdown__hint {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+}
+

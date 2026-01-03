@@ -1,0 +1,29 @@
+{
+  "tracks": [
+    {
+      "id": "ambient-travel-1",
+      "title": "Ambient Travel 1",
+      "duration": 180,
+      "file": "ambient-travel-1.mp3",
+      "attribution": "Royalty-free music",
+      "description": "Calm ambient music perfect for travel photo slideshows"
+    },
+    {
+      "id": "gentle-piano",
+      "title": "Gentle Piano",
+      "duration": 240,
+      "file": "gentle-piano.mp3",
+      "attribution": "Royalty-free music",
+      "description": "Soft piano melody for peaceful moments"
+    },
+    {
+      "id": "uplifting-acoustic",
+      "title": "Uplifting Acoustic",
+      "duration": 200,
+      "file": "uplifting-acoustic.mp3",
+      "attribution": "Royalty-free music",
+      "description": "Cheerful acoustic guitar track"
+    }
+  ]
+}
+

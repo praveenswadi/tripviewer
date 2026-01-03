@@ -1,0 +1,202 @@
+.pin-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px;
+}
+
+.pin-auth__container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.pin-auth__title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.pin-auth__subtitle {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 40px;
+}
+
+.pin-auth__display {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.pin-auth__digit {
+  width: 50px;
+  height: 60px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background: #222;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.pin-auth__digit--filled {
+  border-color: #007bff;
+  background: #1a3a5c;
+}
+
+.pin-auth__error {
+  color: #ff4444;
+  font-size: 16px;
+  margin-bottom: 20px;
+  min-height: 24px;
+}
+
+.pin-auth__keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pin-auth__key {
+  height: 70px;
+  font-size: 28px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background: #2c3e50;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pin-auth__key:hover {
+  background: #34495e;
+  transform: scale(1.05);
+}
+
+.pin-auth__key:active {
+  transform: scale(0.95);
+}
+
+.pin-auth__key:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pin-auth__key:disabled:hover {
+  transform: none;
+  background: #2c3e50;
+}
+
+.pin-auth__key--submit {
+  background: #007bff;
+}
+
+.pin-auth__key--submit:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.pin-auth__key--backspace {
+  background: #e74c3c;
+}
+
+.pin-auth__key--backspace:hover {
+  background: #c0392b;
+}
+
+.pin-auth__hidden-input {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+/* TV Mode - Larger everything */
+.pin-auth--tv .pin-auth__title {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.pin-auth--tv .pin-auth__subtitle {
+  font-size: 28px;
+  margin-bottom: 60px;
+}
+
+.pin-auth--tv .pin-auth__digit {
+  width: 80px;
+  height: 100px;
+  font-size: 48px;
+  gap: 25px;
+}
+
+.pin-auth--tv .pin-auth__keypad {
+  gap: 20px;
+  max-width: 600px;
+}
+
+.pin-auth--tv .pin-auth__key {
+  height: 100px;
+  font-size: 42px;
+  border-radius: 16px;
+}
+
+.pin-auth--tv .pin-auth__error {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* Tablet Mode */
+.pin-auth--tablet .pin-auth__title {
+  font-size: 42px;
+}
+
+.pin-auth--tablet .pin-auth__subtitle {
+  font-size: 22px;
+}
+
+.pin-auth--tablet .pin-auth__digit {
+  width: 60px;
+  height: 75px;
+  font-size: 36px;
+}
+
+.pin-auth--tablet .pin-auth__key {
+  height: 80px;
+  font-size: 32px;
+}
+
+/* Mobile Mode - Show native input */
+.pin-auth--mobile .pin-auth__hidden-input {
+  position: static;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 30px;
+  padding: 15px;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 10px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+}
+
+.pin-auth--mobile .pin-auth__keypad {
+  gap: 10px;
+  max-width: 300px;
+}
+
+.pin-auth--mobile .pin-auth__key {
+  height: 60px;
+  font-size: 24px;
+}
+

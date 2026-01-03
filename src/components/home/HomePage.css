@@ -1,0 +1,128 @@
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+  padding: 40px 20px;
+}
+
+.home-page__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.home-page__title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home-page__subtitle {
+  font-size: 20px;
+  color: #aaa;
+  font-weight: 300;
+}
+
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.error,
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.error h2,
+.empty-state h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ff4444;
+}
+
+.empty-state h2 {
+  color: #fff;
+}
+
+.error p,
+.empty-state p {
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* TV Mode */
+.home-page--tv .home-page__title {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+.home-page--tv .home-page__subtitle {
+  font-size: 32px;
+}
+
+.home-page--tv .trip-grid {
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 40px;
+}
+
+/* Tablet Mode */
+.home-page--tablet .home-page__title {
+  font-size: 56px;
+}
+
+.home-page--tablet .home-page__subtitle {
+  font-size: 24px;
+}
+
+.home-page--tablet .trip-grid {
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+}
+
+/* Mobile Mode */
+.home-page--mobile {
+  padding: 20px 10px;
+}
+
+.home-page--mobile .home-page__header {
+  margin-bottom: 30px;
+}
+
+.home-page--mobile .home-page__title {
+  font-size: 36px;
+}
+
+.home-page--mobile .home-page__subtitle {
+  font-size: 16px;
+}
+
+.home-page--mobile .trip-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .trip-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .trip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1201px) {
+  .trip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

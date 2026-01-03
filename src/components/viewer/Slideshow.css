@@ -1,0 +1,144 @@
+.slideshow {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow__loading,
+.slideshow__error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 40px;
+}
+
+.slideshow__loading {
+  font-size: 24px;
+  color: #aaa;
+}
+
+.slideshow__error h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #ff4444;
+}
+
+.slideshow__error p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #aaa;
+}
+
+.slideshow__error-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.slideshow__error-button:hover {
+  background: #0056b3;
+}
+
+/* Photo display */
+.slideshow__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Caption */
+.slideshow__caption {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24px;
+  padding: 20px 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), transparent);
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.4;
+  z-index: 5;
+}
+
+/* TV Mode overrides */
+.slideshow--tv .slideshow__caption {
+  font-size: 32px;
+  bottom: 180px;
+  padding: 30px 60px;
+}
+
+.slideshow--tv .slideshow__loading,
+.slideshow--tv .slideshow__error {
+  font-size: 32px;
+}
+
+.slideshow--tv .slideshow__error h2 {
+  font-size: 48px;
+}
+
+.slideshow--tv .slideshow__error p {
+  font-size: 24px;
+}
+
+.slideshow--tv .slideshow__error-button {
+  padding: 25px 60px;
+  font-size: 28px;
+}
+
+/* Tablet Mode */
+.slideshow--tablet .slideshow__caption {
+  font-size: 28px;
+  bottom: 150px;
+  padding: 25px 50px;
+}
+
+/* Mobile Mode */
+.slideshow--mobile .slideshow__caption {
+  font-size: 18px;
+  bottom: 100px;
+  padding: 15px 20px;
+}
+
+.slideshow--mobile .slideshow__loading,
+.slideshow--mobile .slideshow__error {
+  padding: 20px;
+}
+
+.slideshow--mobile .slideshow__error h2 {
+  font-size: 24px;
+}
+
+.slideshow--mobile .slideshow__error p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.slideshow--mobile .slideshow__error-button {
+  padding: 12px 30px;
+  font-size: 16px;
+}
+
