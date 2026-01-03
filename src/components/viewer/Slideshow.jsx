@@ -206,15 +206,12 @@ function Slideshow() {
             key={currentPhoto.id}
           />
 
-          {/* Caption */}
-          {currentPhoto.caption && (
-            <div className="slideshow__caption">{currentPhoto.caption}</div>
-          )}
-
           {/* Controls overlay */}
           <Controls
             isPlaying={isPlaying}
             onPlayPause={handlePlayPause}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
             onExit={handleExit}
             currentPhoto={currentPhotoIndex + 1}
             totalPhotos={trip.photos.length}

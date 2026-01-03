@@ -6,6 +6,8 @@ import './Controls.css'
 function Controls({
   isPlaying,
   onPlayPause,
+  onPrevious,
+  onNext,
   onExit,
   currentPhoto,
   totalPhotos,
@@ -16,45 +18,43 @@ function Controls({
   const [visible, setVisible] = useState(true)
   const hideTimerRef = useRef(null)
 
-  // Auto-hide logic for TV
+  // Auto-hide logic - show controls only on mouse movement or touch
   useEffect(() => {
-    if (deviceType !== DEVICE_TYPES.TV) {
-      setVisible(true)
-      return
-    }
-
     const handleMouseMove = () => {
       setVisible(true)
       clearTimeout(hideTimerRef.current)
-      hideTimerRef.current = setTimeout(() => {
-        if (isPlaying) {
-          setVisible(false)
-        }
-      }, APP_CONFIG.CONTROLS_HIDE_DELAY)
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
-    // Initial hide timer
-    if (isPlaying) {
+      
+      // Auto-hide after 3 seconds of inactivity (always, regardless of play/pause)
       hideTimerRef.current = setTimeout(() => {
         setVisible(false)
       }, APP_CONFIG.CONTROLS_HIDE_DELAY)
     }
 
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      clearTimeout(hideTimerRef.current)
-    }
-  }, [deviceType, isPlaying])
-
-  // Show controls when paused
-  useEffect(() => {
-    if (!isPlaying) {
+    const handleTouch = () => {
       setVisible(true)
       clearTimeout(hideTimerRef.current)
+      
+      // Auto-hide after 3 seconds on mobile (always)
+      hideTimerRef.current = setTimeout(() => {
+        setVisible(false)
+      }, APP_CONFIG.CONTROLS_HIDE_DELAY)
     }
-  }, [isPlaying])
+
+    // Only listen for mouse movement and touch, NOT keyboard
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('touchstart', handleTouch)
+
+    // Initial hide timer (3 seconds from page load)
+    hideTimerRef.current = setTimeout(() => {
+      setVisible(false)
+    }, APP_CONFIG.CONTROLS_HIDE_DELAY)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchstart', handleTouch)
+      clearTimeout(hideTimerRef.current)
+    }
+  }, [])
 
   const progress = totalPhotos > 0 ? (currentPhoto / totalPhotos) * 100 : 0
   const timeRemaining = formatTime(totalDuration - currentTime)
@@ -65,6 +65,7 @@ function Controls({
         visible ? 'controls--visible' : 'controls--hidden'
       }`}
     >
+      {/* Thin progress bar at very bottom */}
       <div className="controls__progress-bar">
         <div
           className="controls__progress-fill"
@@ -72,26 +73,47 @@ function Controls({
         />
       </div>
 
-      <div className="controls__bottom">
-        <div className="controls__info">
-          Photo {currentPhoto} of {totalPhotos} · {timeRemaining} remaining
-        </div>
+      {/* Info corners */}
+      <div className="controls__info-left">
+        {currentPhoto} of {totalPhotos}
+      </div>
 
-        <div className="controls__buttons">
-          <button
-            onClick={onPlayPause}
-            className="controls__button controls__button--play-pause"
-          >
-            {isPlaying ? '❚❚ Pause' : '▶ Play'}
-          </button>
-          <button onClick={onExit} className="controls__button controls__button--exit">
-            ✕ Exit
-          </button>
-        </div>
+      <div className="controls__info-right">
+        {timeRemaining}
+      </div>
+
+      {/* Center buttons - always visible */}
+      <div className="controls__center">
+        <button
+          onClick={onPrevious}
+          className="controls__button controls__button--nav"
+          title="Previous Photo"
+        >
+          ← Prev
+        </button>
+        <button
+          onClick={onPlayPause}
+          className="controls__button controls__button--play-pause"
+        >
+          {isPlaying ? '❚❚ Pause' : '▶ Play'}
+        </button>
+        <button
+          onClick={onNext}
+          className="controls__button controls__button--nav"
+          title="Next Photo"
+        >
+          Next →
+        </button>
+        <button 
+          onClick={onExit} 
+          className="controls__button controls__button--exit"
+          title="Exit"
+        >
+          ✕ Exit
+        </button>
       </div>
     </div>
   )
 }
 
 export default Controls
-

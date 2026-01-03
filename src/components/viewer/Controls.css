@@ -1,110 +1,164 @@
 .controls {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7), transparent);
-  padding: 20px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  bottom: 0;
+  transition: opacity 0.5s ease;
   z-index: 10;
+  pointer-events: none;
 }
 
 .controls--hidden {
   opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
 }
 
 .controls--visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
+/* Enable pointer events only for interactive elements */
+.controls--visible .controls__button {
+  pointer-events: auto;
+}
+
+/* Progress bar - thin line at very bottom */
 .controls__progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
   overflow: hidden;
-  margin-bottom: 15px;
 }
 
 .controls__progress-fill {
   height: 100%;
-  background: #007bff;
+  background: rgba(255, 255, 255, 0.6);
   transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-.controls__bottom {
+/* Info overlays - subtle text in corners */
+.controls__info-left,
+.controls__info-right {
+  position: absolute;
+  bottom: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.controls__info-left {
+  left: 12px;
+}
+
+.controls__info-right {
+  right: 12px;
+}
+
+/* Center buttons */
+.controls__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 20px;
-}
-
-.controls__info {
-  font-size: 16px;
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-}
-
-.controls__buttons {
-  display: flex;
-  gap: 15px;
+  align-items: center;
 }
 
 .controls__button {
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: 16px 24px;
+  font-size: 18px;
   font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-shadow: none;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* Navigation buttons - subtle translucent */
+.controls__button--nav {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.controls__button--nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Play/Pause button - blue */
 .controls__button--play-pause {
-  background: #007bff;
-  color: #fff;
+  background: rgba(0, 123, 255, 0.4);
+  backdrop-filter: blur(10px);
   min-width: 120px;
 }
 
 .controls__button--play-pause:hover {
-  background: #0056b3;
-  transform: scale(1.05);
+  background: rgba(0, 123, 255, 0.6);
+  border-color: rgba(0, 123, 255, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
 
+/* Exit button - subtle red */
 .controls__button--exit {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(255, 59, 48, 0.3);
   backdrop-filter: blur(10px);
 }
 
 .controls__button--exit:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 59, 48, 0.5);
+  border-color: rgba(255, 59, 48, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+}
+
+.controls__button:active {
   transform: scale(1.05);
 }
 
-/* TV Mode */
-.controls--tv {
-  padding: 30px 40px;
+/* TV Mode - larger text and buttons */
+.controls--tv .controls__info-left,
+.controls--tv .controls__info-right {
+  font-size: 18px;
+  padding: 10px 18px;
+  bottom: 20px;
+}
+
+.controls--tv .controls__info-left {
+  left: 20px;
+}
+
+.controls--tv .controls__info-right {
+  right: 20px;
 }
 
 .controls--tv .controls__progress-bar {
-  height: 6px;
-  margin-bottom: 25px;
+  height: 3px;
 }
 
-.controls--tv .controls__info {
-  font-size: 24px;
+.controls--tv .controls__center {
+  gap: 30px;
 }
 
 .controls--tv .controls__button {
-  padding: 20px 50px;
-  font-size: 24px;
+  padding: 24px 36px;
+  font-size: 28px;
   border-radius: 12px;
 }
 
@@ -113,69 +167,61 @@
 }
 
 /* Tablet Mode */
-.controls--tablet {
-  padding: 25px 30px;
+.controls--tablet .controls__info-left,
+.controls--tablet .controls__info-right {
+  font-size: 15px;
+  padding: 8px 14px;
+  bottom: 16px;
 }
 
-.controls--tablet .controls__progress-bar {
-  height: 5px;
-  margin-bottom: 20px;
+.controls--tablet .controls__info-left {
+  left: 16px;
 }
 
-.controls--tablet .controls__info {
-  font-size: 18px;
+.controls--tablet .controls__info-right {
+  right: 16px;
+}
+
+.controls--tablet .controls__center {
+  gap: 24px;
 }
 
 .controls--tablet .controls__button {
-  padding: 15px 35px;
-  font-size: 18px;
+  padding: 18px 28px;
+  font-size: 22px;
 }
 
 .controls--tablet .controls__button--play-pause {
   min-width: 140px;
 }
 
-/* Mobile Mode */
-.controls--mobile {
-  padding: 15px 20px;
+/* Mobile Mode - smaller, more compact */
+.controls--mobile .controls__info-left,
+.controls--mobile .controls__info-right {
+  font-size: 11px;
+  padding: 5px 10px;
+  bottom: 8px;
 }
 
-.controls--mobile .controls__progress-bar {
-  height: 3px;
-  margin-bottom: 12px;
+.controls--mobile .controls__info-left {
+  left: 8px;
 }
 
-.controls--mobile .controls__bottom {
-  flex-direction: column;
-  align-items: stretch;
+.controls--mobile .controls__info-right {
+  right: 8px;
+}
+
+.controls--mobile .controls__center {
   gap: 12px;
-}
-
-.controls--mobile .controls__info {
-  font-size: 14px;
-  text-align: center;
-}
-
-.controls--mobile .controls__buttons {
-  justify-content: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 90%;
 }
 
 .controls--mobile .controls__button {
-  padding: 10px 20px;
-  font-size: 14px;
-  flex: 1;
+  padding: 12px 20px;
+  font-size: 16px;
 }
 
 .controls--mobile .controls__button--play-pause {
   min-width: 100px;
 }
-
-/* Always visible on mobile/tablet */
-.controls--mobile.controls--hidden,
-.controls--tablet.controls--hidden {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
