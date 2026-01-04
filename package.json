@@ -18,6 +18,7 @@
     "test:local": "cp -r private-data/* public/data/ && npm run dev",
     "sync:data": "cp -r private-data/* public/data/",
     "set-music": "node scripts/set-trip-music.js",
+    "enable-music-all": "node scripts/enable-music-all.js",
     "list-tracks": "cat public/audio/music/tracks.json"
   },
   "dependencies": {

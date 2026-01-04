@@ -75,9 +75,10 @@ function Slideshow() {
       return
     }
 
-    // For non-TV devices, skip countdown
+    // For non-TV devices, skip countdown and auto-start
     if (deviceType !== DEVICE_TYPES.TV && showCountdown && !loading && trip) {
       setShowCountdown(false)
+      setIsPlaying(true)
     }
   }, [deviceType, showCountdown, loading, trip])
 
