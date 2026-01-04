@@ -6,9 +6,19 @@ A web application for sharing travel photo stories with family, optimized for Sm
 
 Import photos from any Flickr album with one command:
 
+### For Public Albums (API-based)
 ```bash
 export FLICKR_API_KEY=your_key
-npm run import:flickr "https://flickr.com/gp/user/album" trip-id
+npm run import:flickr "https://flickr.com/photos/user/albums/12345" trip-id
+```
+
+### For Private Albums (Web Scraping)
+```bash
+# Works with guest pass URLs - no API key needed!
+npm run import:private "https://flickr.com/gp/user/album" trip-id
+
+# Debug mode (saves HTML and shows detailed logs)
+npm run import:private:debug "https://flickr.com/gp/user/album" trip-id
 ```
 
 **See [FLICKR_IMPORT_SUMMARY.md](FLICKR_IMPORT_SUMMARY.md) for complete guide!**
