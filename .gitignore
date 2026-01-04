@@ -38,3 +38,5 @@ public/data/trips/*.json
 # Flickr API credentials
 .flickr-api-key
 
+.vercel
+.env*.local

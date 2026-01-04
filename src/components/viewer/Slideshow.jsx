@@ -13,6 +13,7 @@ import { DATA_PATHS, DEVICE_TYPES, APP_CONFIG } from '../../config/constants'
 import Countdown from './Countdown'
 import Controls from './Controls'
 import BackgroundMusic from './BackgroundMusic'
+import MusicAttribution from './MusicAttribution'
 import Loading from '../common/Loading'
 import './Slideshow.css'
 
@@ -29,18 +30,26 @@ function Slideshow() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showCountdown, setShowCountdown] = useState(true)
   const [photoTimeline, setPhotoTimeline] = useState({})
+  const [currentMusicTrack, setCurrentMusicTrack] = useState(null)
 
   // Load trip data
   useEffect(() => {
     setLoading(true)
+    
     fetch(`${DATA_PATHS.TRIPS_DIR}${tripId}.json`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Trip not found')
-        }
+      .then(res => {
+        if (!res.ok) throw new Error('Trip not found')
         return res.json()
       })
       .then((data) => {
+        // Enable music by default if not configured
+        if (!data.backgroundMusic) {
+          data.backgroundMusic = {
+            enabled: true,
+            volume: APP_CONFIG.DEFAULT_MUSIC_VOLUME
+          }
+        }
+        
         setTrip(data)
 
         // Calculate photo timeline if not provided
@@ -221,13 +230,25 @@ function Slideshow() {
           />
 
           {/* Background music */}
-          {trip.backgroundMusic && (
-            <BackgroundMusic
-              trackId={trip.backgroundMusic.trackId}
-              volume={trip.backgroundMusic.volume || APP_CONFIG.DEFAULT_MUSIC_VOLUME}
-              isPlaying={isPlaying}
-              enabled={trip.backgroundMusic.enabled}
-            />
+          {trip.backgroundMusic && trip.backgroundMusic.enabled && (
+            <>
+              <BackgroundMusic
+                volume={trip.backgroundMusic.volume || APP_CONFIG.DEFAULT_MUSIC_VOLUME}
+                isPlaying={isPlaying}
+                enabled={trip.backgroundMusic.enabled}
+                currentTime={currentTime}
+                totalDuration={trip.totalDuration}
+                onTrackChange={setCurrentMusicTrack}
+              />
+              {/* Music attribution */}
+              {currentMusicTrack && (
+                <MusicAttribution
+                  track={currentMusicTrack}
+                  isPlaying={isPlaying}
+                  deviceType={deviceType}
+                />
+              )}
+            </>
           )}
         </>
       )}

@@ -16,7 +16,9 @@
     "setup": "bash scripts/setup-credentials.sh",
     "test:env": "node scripts/test-env.js",
     "test:local": "cp -r private-data/* public/data/ && npm run dev",
-    "sync:data": "cp -r private-data/* public/data/"
+    "sync:data": "cp -r private-data/* public/data/",
+    "set-music": "node scripts/set-trip-music.js",
+    "list-tracks": "cat public/audio/music/tracks.json"
   },
   "dependencies": {
     "dotenv": "^17.2.3",

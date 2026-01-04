@@ -1,29 +1,48 @@
 {
   "tracks": [
     {
-      "id": "ambient-travel-1",
-      "title": "Ambient Travel 1",
-      "duration": 180,
-      "file": "ambient-travel-1.mp3",
-      "attribution": "Royalty-free music",
-      "description": "Calm ambient music perfect for travel photo slideshows"
+      "id": "carefree",
+      "title": "Carefree",
+      "duration": 211,
+      "file": "Carefree.mp3",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "attribution": "\"Carefree\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/",
+      "license": "CC BY 4.0",
+      "mood": "upbeat",
+      "description": "Upbeat, cheerful melody perfect for happy travel moments"
     },
     {
-      "id": "gentle-piano",
-      "title": "Gentle Piano",
-      "duration": 240,
-      "file": "gentle-piano.mp3",
-      "attribution": "Royalty-free music",
-      "description": "Soft piano melody for peaceful moments"
+      "id": "clear-air",
+      "title": "Clear Air",
+      "duration": 126,
+      "file": "Clear Air.mp3",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "attribution": "\"Clear Air\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/",
+      "license": "CC BY 4.0",
+      "mood": "calm",
+      "description": "Calm, peaceful ambient music for serene landscapes"
     },
     {
-      "id": "uplifting-acoustic",
-      "title": "Uplifting Acoustic",
-      "duration": 200,
-      "file": "uplifting-acoustic.mp3",
-      "attribution": "Royalty-free music",
-      "description": "Cheerful acoustic guitar track"
+      "id": "floating-cities",
+      "title": "Floating Cities",
+      "duration": 313,
+      "file": "Floating Cities.mp3",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "attribution": "\"Floating Cities\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/",
+      "license": "CC BY 4.0",
+      "mood": "dreamy",
+      "description": "Ambient, dreamy atmosphere for cultural exploration"
+    },
+    {
+      "id": "paradise-found",
+      "title": "Paradise Found",
+      "duration": 268,
+      "file": "Paradise_Found.mp3",
+      "artist": "Kevin MacLeod (incompetech.com)",
+      "attribution": "\"Paradise Found\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/",
+      "license": "CC BY 4.0",
+      "mood": "tropical",
+      "description": "Tropical, relaxing vibes perfect for vacation memories"
     }
   ]
 }
-
